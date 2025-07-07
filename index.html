@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHS Learning Activity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F2F2F2; /* Light grey background */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to the top */
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .accordion-container {
+            width: 100%;
+            max-width: 700px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 2px solid #532A8C; /* Dark purple border around the main container */
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #E0E0E0; /* Light border between items */
+            border: 1px solid #532A8C; /* Dark purple border added to each accordion item */
+            border-radius: 8px; /* Rounded corners for each item */
+            margin: 8px; /* Margin around each item to separate them */
+            overflow: hidden; /* Ensures content stays within rounded borders */
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none; /* Remove bottom border for the last item if it's not the main item border */
+        }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            background-color: #ffffff; /* White background for header */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 8px; /* Rounded corners for header */
+            /* Removed margin here as it's now on .accordion-item */
+        }
+
+        .accordion-header:hover {
+            background-color: #9D8ABB; /* Slightly darker purple on hover */
+        }
+
+        .accordion-header.active {
+            background-color: #9D8ABB; /* Darker purple when active */
+        }
+
+        .accordion-header h3 {
+            font-weight: 700; /* Bold headings */
+            color: #532A8C; /* Dark purple text */
+            margin: 0;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .accordion-header img {
+            width: 32px; /* Icon size */
+            height: 32px;
+            margin-right: 12px;
+            border-radius: 4px; /* Slightly rounded icon corners */
+        }
+
+        .accordion-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+            color: #532A8C; /* Dark purple icon color */
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(90deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            background-color: #ffffff; /* White for closed state */
+            padding: 0 24px; /* Initial padding */
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        .accordion-content.open {
+            max-height: 200px; /* Adjust based on expected content height */
+            padding: 16px 24px;
+            background-color: #F2F2F2; /* Retained grey for open state */
+        }
+
+        .accordion-content p {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .accordion-header {
+                padding: 12px 16px;
+            }
+            .accordion-header img {
+                width: 28px;
+                height: 28px;
+                margin-right: 8px;
+            }
+            .accordion-content {
+                padding: 12px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="accordion-container">
+        <!-- WHS is Crucial -->
+        <div class="accordion-item">
+            <div class="accordion-header" data-target="whs-crucial">
+                <img src="WHS is Crucial.png" alt="WHS is Crucial Icon" onerror="this.onerror=null;this.src='https://placehold.co/32x32/C3ACE8/532A8C?text=WHS';" class="rounded-md">
+                <h3>WHS is Crucial</h3>
+                <svg class="accordion-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div id="whs-crucial" class="accordion-content">
+                <p>Essential for preventing injuries, promoting well-being, and ensuring a safe work environment.</p>
+            </div>
+        </div>
+
+        <!-- Shared Responsibility -->
+        <div class="accordion-item">
+            <div class="accordion-header" data-target="shared-responsibility">
+                <img src="Shared Responsibility.png" alt="Shared Responsibility Icon" onerror="this.onerror=null;this.src='https://placehold.co/32x32/C3ACE8/532A8C?text=Share';" class="rounded-md">
+                <h3>Shared Responsibility</h3>
+                <svg class="accordion-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div id="shared-responsibility" class="accordion-content">
+                <p>Safety is everyone's duty—employers, workers, and visitors alike.</p>
+            </div>
+        </div>
+
+        <!-- Legal Framework -->
+        <div class="accordion-item">
+            <div class="accordion-header" data-target="legal-framework">
+                <img src="Legal Framework.png" alt="Legal Framework Icon" onerror="this.onerror=null;this.src='https://placehold.co/32x32/C3ACE8/532A8C?text=Legal';" class="rounded-md">
+                <h3>Legal Framework</h3>
+                <svg class="accordion-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div id="legal-framework" class="accordion-content">
+                <p>Governed by Acts (WHS Act 2011, Protection from Harmful Radiation Act 1990), Regulations (WHS Regulation 2017), Codes of Practice, Australian Standards, and workplace policies.</p>
+            </div>
+        </div>
+
+        <!-- Rights & Duties -->
+        <div class="accordion-item">
+            <div class="accordion-header" data-target="rights-duties">
+                <img src="Penalty.png" alt="Rights & Duties Icon" onerror="this.onerror=null;this.src='https://placehold.co/32x32/C3ACE8/532A8C?text=Rights';" class="rounded-md">
+                <h3>Rights & Duties</h3>
+                <svg class="accordion-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div id="rights-duties" class="accordion-content">
+                <p>Employers ensure safety, workers follow procedures, and both have legal responsibilities.</p>
+            </div>
+        </div>
+
+        <!-- "Reasonably Practicable" & "Due Diligence" -->
+        <div class="accordion-item">
+            <div class="accordion-header" data-target="reasonably-practicable-due-diligence">
+                <img src="Reasonably Practicable and Due Diligence.png" alt="Reasonably Practicable and Due Diligence Icon" onerror="this.onerror=null;this.src='https://placehold.co/32x32/C3ACE8/532A8C?text=Due';" class="rounded-md">
+                <h3>"Reasonably Practicable" & "Due Diligence"</h3>
+                <svg class="accordion-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div id="reasonably-practicable-due-diligence" class="accordion-content">
+                <p>Core concepts of practical and effective safety measures.</p>
+            </div>
+        </div>
+
+        <!-- WHS Authorities -->
+        <div class="accordion-item">
+            <div class="accordion-header" data-target="whs-authorities">
+                <img src="WHS Authorities.png" alt="WHS Authorities Icon" onerror="this.onerror=null;this.src='https://placehold.co/32x32/C3ACE8/532A8C?text=Auth';" class="rounded-md">
+                <h3>WHS Authorities</h3>
+                <svg class="accordion-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div id="whs-authorities" class="accordion-content">
+                <p>SafeWork NSW enforces laws, advises, and penalizes non-compliance.</p>
+            </div>
+        </div>
+
+        <!-- Other Legislation -->
+        <div class="accordion-item">
+            <div class="accordion-header" data-target="other-legislation">
+                <img src="Other Legislation.png" alt="Other Legislation Icon" onerror="this.onerror=null;this.src='https://placehold.co/32x32/C3ACE8/532A8C?text=Legis';" class="rounded-md">
+                <h3>Other Legislation</h3>
+                <svg class="accordion-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div id="other-legislation" class="accordion-content">
+                <p>Includes Health Practitioner Act, Poisons and Therapeutic Goods Act, Health Records and Information Privacy Act, and Radiation Control Act for healthcare safety.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const targetId = header.dataset.target;
+                    const content = document.getElementById(targetId);
+
+                    // Close all other open accordion items
+                    accordionHeaders.forEach(otherHeader => {
+                        const otherTargetId = otherHeader.dataset.target;
+                        const otherContent = document.getElementById(otherTargetId);
+                        if (otherHeader !== header && otherHeader.classList.contains('active')) {
+                            otherHeader.classList.remove('active');
+                            otherContent.classList.remove('open');
+                        }
+                    });
+
+                    // Toggle the clicked accordion item
+                    header.classList.toggle('active');
+                    content.classList.toggle('open');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
